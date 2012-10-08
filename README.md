@@ -1,10 +1,11 @@
 # Browser Detection
 
-- Version: 1.0
+- Version: 1.1
 - Author : Will Nielsen
 - Originator: Phill Gray
 - Build Date: 2011-07-25
 - Requirements: Symphony 2.2.1
+- Note: works with Symphony 2.3
 
 ## Installation
 
