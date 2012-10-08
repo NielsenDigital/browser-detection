@@ -16,8 +16,7 @@
 			return array(
 					'name' => 'Browser Detection',
 					'author' => array(
-							'name' => 'Phill Gray',
-							'website' => 'phill@randb.com.au'
+							'name' => 'Will Nielsen, Phill Gray'
 						),
 					'description' => 'This datasource outputs the users browser info and OS info into usable XML data.',
 					);	
@@ -38,6 +37,7 @@
 		public function grab(&$param_pool) {
         	// Sourced from http://www.geekpedia.com/code47_Detect-operating-system-from-user-agent-string.html
 			$osList = array(
+				'Windows 8' => 'windows nt 6.2',
 				'Windows 7' => 'windows nt 6.1',
 				'Windows Vista' => 'windows nt 6.0',
 				'Windows Server 2003' => 'windows nt 5.2',
@@ -63,6 +63,7 @@
 				'Mac OS X Leopard' => 'mac os x 10.5',
 				'Mac OS X Snow Leopard' => 'mac os x 10.6',
 				'Mac OS X Lion' => 'mac os x 10.7',
+				'Mac OS X Mountain Lion' => 'mac os x 10.8',
 				'Mac OS X (version unknown)' => 'mac os x',
 				'Mac OS (classic)' => '(mac_powerpc)|(macintosh)',
 				'QNX' => 'QNX',
