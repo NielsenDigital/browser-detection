@@ -69,26 +69,31 @@
 				'QNX' => 'QNX',
 				'BeOS' => 'beos',
 				'OS2' => 'os/2',
-				'SearchBot'=>'(nuhk)|(googlebot)|(yammybot)|(openbot)|(slurp)|(msnbot)|(ask jeeves/teoma)|(ia_archiver)'
-			);
-			
-			$useragent = HTTP_USER_AGENT;
-			$useragent = strtolower($useragent);
-			
-			foreach($osList as $os=>$match) {
-				if (preg_match('/' . $match . '/i', $useragent)) {
-					break;
-				} else {
-					$os = "Could not detect";
-				}
-			}
-			
-			$browser = new Browser();
-			
-			$result = new XMLElement(
-				$this->dsParamROOTELEMENT, 
-				null, 
-				array(
+				'SearchBot'=>'(nuhk)|(googlebot)|(yammybot)|(openbot)|(slurp)|(msnbot)|(ask jeeves/teoma)|(ia_archiver)' );
+
+                if(HTTP_USER_AGENT)
+                {
+                    $useragent = HTTP_USER_AGENT;
+                    $useragent = strtolower($useragent);
+                    foreach($osList as $os=>$match) {
+                        if (preg_match('/' . $match . '/i', $useragent)) {
+                        break;
+                        } else {
+                        $os = "Could not detect";
+                        }
+                    }
+                }
+                else {
+                $os = "Could not detect";
+
+                }
+
+                $browser = new Browser();
+
+                $result = new XMLElement(
+                $this->dsParamROOTELEMENT,
+                null,
+                array(
 					'mobile'=>$browser->isMobile() ? 'yes' : 'no',
 					'chromeframe'=>$browser->isChromeFrame() ? 'yes' : 'no',
 					'robot'=>$browser->isRobot() ? 'yes' : 'no'
