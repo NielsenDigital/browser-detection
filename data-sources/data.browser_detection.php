@@ -37,6 +37,9 @@
 		public function grab(&$param_pool) {
         	// Sourced from http://www.geekpedia.com/code47_Detect-operating-system-from-user-agent-string.html
 			$osList = array(
+			
+            // Windows
+            
 				'Windows 8' => 'windows nt 6.2',
 				'Windows 7' => 'windows nt 6.1',
 				'Windows Vista' => 'windows nt 6.0',
@@ -50,42 +53,50 @@
 				'Windows 95' => 'windows 95',
 				'Windows CE' => 'windows ce',
 				'Windows (version unknown)' => 'windows',
+				
+                // Other OS
+                
 				'OpenBSD' => 'openbsd',
 				'SunOS' => 'sunos',
+                'QNX' => 'QNX',
+                'BeOS' => 'beos',
+                'OS2' => 'os/2',
+
+                // Linux 
 				'Ubuntu' => 'ubuntu',
 				'Linux' => '(linux)|(x11)',
-				'Mac OS X Beta (Kodiak)' => 'mac os x beta',
-				'Mac OS X Cheetah' => 'mac os x 10.0',
-				'Mac OS X Puma' => 'mac os x 10.1',
-				'Mac OS X Jaguar' => 'mac os x 10.2',
-				'Mac OS X Panther' => 'mac os x 10.3',
-				'Mac OS X Tiger' => 'mac os x 10.4',
-				'Mac OS X Leopard' => 'mac os x 10.5',
-				'Mac OS X Snow Leopard' => 'mac os x 10.6',
-				'Mac OS X Lion' => 'mac os x 10.7',
+				
+                // Mac OS
+                
 				'Mac OS X Mountain Lion' => 'mac os x 10.8',
+				'Mac OS X Lion' => 'mac os x 10.7',
+				'Mac OS X Snow Leopard' => 'mac os x 10.6',
+				'Mac OS X Leopard' => 'mac os x 10.5',
+				'Mac OS X Tiger' => 'mac os x 10.4',
+				'Mac OS X Panther' => 'mac os x 10.3',
+				'Mac OS X Jaguar' => 'mac os x 10.2',
+				'Mac OS X Puma' => 'mac os x 10.1',
+				'Mac OS X Cheetah' => 'mac os x 10.0',
+				'Mac OS X Beta (Kodiak)' => 'mac os x beta',
 				'Mac OS X (version unknown)' => 'mac os x',
 				'Mac OS (classic)' => '(mac_powerpc)|(macintosh)',
-				'QNX' => 'QNX',
-				'BeOS' => 'beos',
-				'OS2' => 'os/2',
+				
+                // Social Media
+                'Facebook' => 'facebookexternalhit/1.1',
+                'LinkedIn' => 'linkedin',
+                'Google+' => 'googleplus',
+                'Twitter' => 'twitter',
+                
 				'SearchBot'=>'(nuhk)|(googlebot)|(yammybot)|(openbot)|(slurp)|(msnbot)|(ask jeeves/teoma)|(ia_archiver)' );
 
-                if(HTTP_USER_AGENT)
-                {
-                    $useragent = HTTP_USER_AGENT;
-                    $useragent = strtolower($useragent);
-                    foreach($osList as $os=>$match) {
-                        if (preg_match('/' . $match . '/i', $useragent)) {
-                        break;
-                        } else {
-                        $os = "Could not detect";
-                        }
+                $useragent = HTTP_USER_AGENT;
+                $useragent = strtolower($useragent);
+                foreach($osList as $os=>$match) {
+                    if (preg_match('/' . $match . '/i', $useragent)) {
+                    break;
+                    } else {
+                    $os = "Could not detect";
                     }
-                }
-                else {
-                $os = "Could not detect";
-
                 }
 
                 $browser = new Browser();
