@@ -2,7 +2,7 @@
 <extension id="browser_detection" status="released" xmlns="http://getsymphony.com/schemas/extension/1.0">
 	<name>Browser Detection</name>
 	<description>Checks the users browser, version, platform, platform version, if it's a mobile device, a robot or using chromeframe and outputs results into a custom datasource. Easy!</description>
-	<repo type="github">https://github.com/wjn/browser-detection</repo>
+	<repo type="github">https://github.com/NielsenDigital/browser-detection</repo>
 	<!--<url type="discuss">{url of getsymphony.com forum discussion}</url>-->
 	<types>
 		<type>Data Sources</type>
@@ -17,7 +17,7 @@
 		</author>
 	</authors>
 	<releases>
-		<release version="1.1" date="2012-10-08" min="2.2.2">
+		<release version="1.2" date="2012-10-08" min="2.2.1">
 			- workaround for sharing on social media venues
 		</release>
 		<release version="1.1" date="2012-10-08" min="2.2.1">
